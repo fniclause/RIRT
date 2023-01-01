@@ -13,7 +13,7 @@ test = []
 if a <-1 :
     print("test random")
 elif -1<a<=0:
-    print("pas de recompense")
+    print("Pas de recompense")
 else:
     b = random.choice(l_recompenses)
     print(f"Bravo, tu te rapproches de l'objectif : {b} => +{round(a,2)}€")
