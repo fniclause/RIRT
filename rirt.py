@@ -2,9 +2,9 @@ import numpy as np
 from numpy import random
 import pandas as pd
 
-df_recompenses = pd.read_csv("./data/recompenses.csv",index_col=0)
+df_rewards = pd.read_csv("./data/rewards.csv",index_col=0)
 
-l_recompenses = df_recompenses.index.values.tolist()
+l_rewards = df_rewards.index.values.tolist()
 
 
 a = random.normal(0,1)
@@ -15,8 +15,11 @@ if a <-1 :
 elif -1<a<=0:
     print("Pas de recompense")
 else:
-    b = random.choice(l_recompenses)
+    b = random.choice(l_rewards)
     print(f"Bravo, tu te rapproches de l'objectif : {b} => +{round(a,2)}€")
-    df_recompenses.loc[b,"déjà acquis"]=round(a,2)
+    df_rewards.loc[b,"already"]=round(a,2)
     
-df_recompenses.to_csv("./data/recompenses.csv")
+df_rewards["pourcentage"]=round(df_rewards["already"]/df_rewards["price"]*100)
+    
+df_rewards.to_csv("./data/rewards.csv")
+print(df_rewards)
