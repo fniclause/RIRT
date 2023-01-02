@@ -5,3 +5,20 @@ RAF :
 1) faire liste récompenses avec montant => done
 2) faire base de données avec montant déjà gagné => done
 3)
+
+exemple :
+import datetime
+
+# Dictionnaire qui stocke la date de la dernière exécution de chaque activité
+last_execution_dates = {}
+
+def can_execute_activity(activity):
+  # Obtention de la date et de l'heure actuelles
+  current_date = datetime.datetime.now()
+
+  # Vérification si l'activité a déjà été exécutée aujourd'hui
+  if activity in last_execution_dates:
+    last_execution_date = last_execution_dates[activity]
+    return last_execution_date.date() != current_date.date()
+  else:
+    # Si c'est la première 
