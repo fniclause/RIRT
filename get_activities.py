@@ -2,6 +2,8 @@ import pandas as pd
 
 df_activities=pd.read_csv("./data/activities.csv")
 
+print(df_activities)
+
 print("What activities did you do ?")
 a=input()
 
