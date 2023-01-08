@@ -2,12 +2,15 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
+import sys
+
 df_activities=pd.read_csv("./data/activities.csv",index_col=[0])
 
 print(df_activities.loc[df_activities["rank"]==1].loc[:,"activities"])
 
 print("What activities did you do ?")
-a=input()
+#a=input()
+a=sys.argv[1]
 
 
 if a.lower() in df_activities.loc[:,'activities'].str.lower().tolist():
