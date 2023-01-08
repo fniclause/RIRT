@@ -12,12 +12,15 @@ print("What activities did you do ?")
 #a=input()
 a=sys.argv[1]
 
+df_h = pd.read_csv("data/history.csv", index_col=[0])
+
+
 
 if a.lower() in df_activities.loc[:,'activities'].str.lower().tolist():
     print("OK, let's turn the wheel of fortune.")
     #run the script rirt if the activity is a useful one
     import rirt
-    df_h = pd.read_csv("data/history.csv", index_col=[0])
+
     df_h = pd.concat([df_h,
            pd.DataFrame([[datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
             a,
